@@ -2,9 +2,9 @@ export default function SideBar(){
 
     return(
         <>
-        <main className="md:m-4">
-            <h1>SomeCompany</h1>
-            <ul>
+        <main className="md:m-16 text-white">
+            <h1 className="text-xl font-bold mb-16">SomeCompany</h1>
+            <ul className="space-y-6">
                 <li><a href="/">Statistics</a></li>
                 <li><a href="/">Teams</a></li>
                 <li><a href="/">Employees</a></li>
