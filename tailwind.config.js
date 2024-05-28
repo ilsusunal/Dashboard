@@ -5,7 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'lavender': {
+          100 : '#98bdff',
+          200 : '#7da0fa',
+          300 : '#7978e9',
+          400 : '#4b49ac',
+        },
+        'mercan' : '#f3797e',
+      },
+    },
   },
   plugins: [],
 }
