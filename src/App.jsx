@@ -1,6 +1,6 @@
 import './App.css'
-import MainPage from './components/MainPage'
-import SideBar from './components/SideBar'
+import MainPage from './pages/MainPage'
+import SideBar from './pages/SideBar'
 
 function App() {
   

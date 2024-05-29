@@ -9,7 +9,7 @@ export default function MainPage(){
     
     return(
         <>
-        <div className="bg-white md:rounded-3xl md:m-4 md:w-full p-8">
+        <div className="bg-indigo-50 md:rounded-3xl md:m-4 md:w-full p-8">
             <header className='md:flex md:justify-between md:my-4'>
                 <h1 className='text-pink-700'>Dashboard</h1>
                 <div className='md:space-x-4'>
