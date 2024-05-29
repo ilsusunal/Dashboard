@@ -1,17 +1,19 @@
 import { useOptionContext } from '../contexts/OptionContext';
 
 export default function SideBar(){
-    const { handleOptionChange } = useOptionContext();
+    const { selectedOption, handleOptionChange } = useOptionContext();
 
     return(
         <>
-        <main className="md:m-16 text-white">
-            <h1 className="text-xl font-bold mb-16">SomeCompany</h1>
-            <ul className="space-y-6">
-                <li><i className="fas fa-camera"></i><button onClick={() => handleOptionChange('Statistics')}>Statistics</button></li>
-                <li><button onClick={() => handleOptionChange('Teams')}>Teams</button></li>
-                <li><button onClick={() => handleOptionChange('Employees')}>Employees</button></li>
-                <li><button onClick={() => handleOptionChange('Courses')}>Courses</button></li>
+        <main className="md:my-16 md:ml-16 md:min-w-[200px] text-white">
+            <h1 className="mb-16">SomeCompany</h1>
+            <ul className="space-y-8">
+                {['Statistics', 'Teams', 'Employees', 'Courses'].map((option) => (
+                <li key={option} className={`${ selectedOption === option ? 'bg-indigo-900 rounded-full min-w-max' : ''}`}>
+                <i className={`fa-solid ${option === 'Statistics' ? 'fa-chart-simple' : option === 'Teams' ? 'fa-people-group' : option === 'Employees' ? 'fa-user' : 'fa-book'}`}></i>
+                <button className='ml-4' onClick={() => handleOptionChange(option)}>{option}</button>
+          </li>
+        ))}
             </ul>
         </main>
         

@@ -9,9 +9,9 @@ export default function MainPage(){
     
     return(
         <>
-        <div className="bg-white md:rounded-3xl md:m-4 md:w-full md:ml-16 p-8">
+        <div className="bg-white md:rounded-3xl md:m-4 md:w-full p-8">
             <header className='md:flex md:justify-between md:my-4'>
-                <h1>Dashboard</h1>
+                <h1 className='text-pink-700'>Dashboard</h1>
                 <div className='md:space-x-4'>
                     <button>DarkMode</button>
                     <button>Search</button>

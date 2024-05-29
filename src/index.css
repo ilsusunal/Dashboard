@@ -6,3 +6,11 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background: #1e1b4b;
 }
+
+h1{
+  @apply text-xl font-bold
+}
+
+li{
+  @apply hover:bg-indigo-900 hover:rounded-full py-2 px-4
+}
