@@ -2,7 +2,7 @@ export default function Statistics(){
 
     return(
         <>
-        OVERVIEW
+        <header>Statistics Overview</header>
         </>
     )
 }
