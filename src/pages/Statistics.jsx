@@ -1,4 +1,6 @@
-import { LeaderBoard } from "../components/LeaderBoard"
+import { LeaderBoard } from "../components/LeaderBoard";
+import { ActivityChart } from "../components/ActivityChart";
+import { DataCards } from "../components/DataCards";
 
 export default function Statistics(){
 
@@ -8,14 +10,14 @@ export default function Statistics(){
             <h2>Statistics Overview</h2>
         </header>
         <main className="flex md:mt-4 space-x-4 ">
-            <section className="bg-blue-600 rounded-3xl flex-1 p-4">
+            <section className="bg-white rounded-3xl flex-1 p-2">
                 <LeaderBoard/>
             </section>
-            <section className="bg-blue-600 rounded-3xl flex-1 p-4">
-                <div>data cards</div>
-                <div>activity hours</div>
+            <section className="flex-1 p-4">
+                <DataCards/>
+                <ActivityChart/>
             </section>
-            <section className="bg-blue-600 rounded-3xl flex-1 p-4">
+            <section className="bg-white rounded-3xl flex-1 p-4">
                 <div>skills in dev</div>
                 <div>top skills</div>
             </section>
