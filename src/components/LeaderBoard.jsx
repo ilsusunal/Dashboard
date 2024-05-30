@@ -20,10 +20,10 @@ export function LeaderBoard(){
             ))}
         </section>
         <section className="mb-6">
-            <div className="flex space-x-4">
+            <div className="flex justify-between space-x-4">
                 {teams.map((team, index) => (
                 <button key={index}
-                    className={`py-2 px-4 rounded ${selectedTeam === team ? 'bg-pink-700 text-white' : ''}`}
+                    className={`text-xs p-1 rounded ${selectedTeam === team ? 'bg-pink-700 text-white' : ''}`}
                     onClick={() => handleTeamSelect(team)}>
                 {team.title}
                 </button>
