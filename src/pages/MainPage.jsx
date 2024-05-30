@@ -17,12 +17,12 @@ export default function MainPage(){
                     <button>Search</button>
                 </div>
             </header>
-            <main>
+            <section>
                {selectedOption === 'Statistics' && <p><Statistics/></p>}
                 {selectedOption === 'Teams' && <Teams />}
                 {selectedOption === 'Employees' && <p><Employees/></p>}
                 {selectedOption === 'Courses' && <p><Courses/></p>} 
-            </main>
+            </section>
         </div>
         </>
     )
