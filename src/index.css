@@ -12,9 +12,9 @@ h1{
 }
 
 h2{
-  @apply text-lg font-bold text-yellow-500
+  @apply text-xl font-bold text-yellow-500
 }
 
 li{
-  @apply hover:bg-indigo-900 hover:rounded-full py-2 px-4
+  @apply hover:bg-pink-700 hover:rounded-full py-2 px-4
 }
