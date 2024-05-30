@@ -12,7 +12,7 @@ export function ActivityChart(){
 
     return(
         <>
-        <div className='bg-white rounded-3xl'>
+        <div className='bg-white rounded-3xl text-xs'>
         <ResponsiveContainer width="100%" height={300}>
         <LineChart data={activity} margin={{top: 20, right: 30, left: 20, bottom: 5,}}>
             <CartesianGrid strokeDasharray="3 3" />
