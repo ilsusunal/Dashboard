@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useData } from "../contexts/DataContext";
-import { Calendar } from "../components/Calender";
+import { TableView } from "../components/TableView";
+import { KanbanView } from "../components/KanbanView";
 
 export default function Courses(){
-    const { compData } = useData();
-
-    if (!compData) {
-        return <div>Loading...</div>;
-    }
+    const [view, setView] = useState('table');
     return(
         <>
-        <div className="md:flex">
-            <Calendar events={compData.in_progress_courses} />
-        </div>
+        <header>
+            <div>
+                <button onClick={() => setView('table')}>Table View</button>
+                <button onClick={() => setView('kanban')}>Kanban View</button>
+            </div>
+        </header>
+        <main>
+            {view === 'table' ? <TableView /> : <KanbanView />}
+        </main>
         </>
     )
 }

@@ -11,6 +11,8 @@ export const DataProvider = ({ children }) => {
   const [selectedTeam, setSelectedTeam] = useState(null);
   const [activity, setActivity] = useState(null);
   const [compData, setCompData] = useState(null);
+  const [coursesInP, setCoursesInP] = useState([]);
+  const [coursesUpcoming, setCoursesUpcoming] = useState([]);
 
   useEffect(() => {
     axios.get('https://demotrainiq.com/case/dashboard')
@@ -20,6 +22,8 @@ export const DataProvider = ({ children }) => {
         setSelectedTeam(response.data.data.teams[0]);
         setActivity(response.data.data.activity_hours);
         setCompData(response.data.data);
+        setCoursesInP(response.data.data.in_progress_courses);
+        setCoursesUpcoming(response.data.data.upcoming_courses);
       })
       .catch(error => {
         console.error("There was an error fetching the data!", error);
@@ -30,7 +34,9 @@ export const DataProvider = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ topEmployees, teams, selectedTeam, setSelectedTeam, activity, setActivity,compData, setCompData}}>
+    <DataContext.Provider value={{ topEmployees, teams, selectedTeam, 
+    setSelectedTeam, activity, setActivity,compData, setCompData, 
+    coursesInP, coursesUpcoming}}>
       {children}
     </DataContext.Provider>
   );
