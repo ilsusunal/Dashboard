@@ -27,9 +27,9 @@ export function SkillPieCharts(){
     };
     return (
         <>
-        <div className="md:flex justify-around space-x-4">
-            <div className='bg-white rounded-3xl'>
-                <h3 className="text-sm text-gray-500 p-4">Skills in Development</h3>
+        <div className="md:flex gap-4">
+            <div className='bg-white grow rounded-3xl p-6'>
+                <h2 className="text-gray-500 mb-4">Skills in Development</h2>
                 <ResponsiveContainer width={300} height={300} aspect={1}>
                 <PieChart>
                     <Pie
@@ -51,8 +51,8 @@ export function SkillPieCharts(){
                 </PieChart>
                 </ResponsiveContainer>
             </div>
-            <div className='bg-white rounded-3xl'>
-                <h3 className="text-sm text-gray-500 p-4">Top Skills</h3>
+            <div className='bg-white rounded-3xl grow p-6'>
+                <h2 className="text-gray-500 mb-4">Top Skills</h2>
                 <ResponsiveContainer width={300} height={300} aspect={1}>
                 <PieChart>
                     <Pie

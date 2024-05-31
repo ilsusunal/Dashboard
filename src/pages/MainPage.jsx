@@ -11,15 +11,15 @@ export default function MainPage(){
         <>
         <div className="bg-indigo-50 md:rounded-3xl md:m-4 md:w-full py-4 px-8">
             <header className='md:flex md:justify-between md:my-4'>
-                <h1 className='text-pink-700'>
+                {/*<h1 className='text-pink-700'>
                 {selectedOption === 'Statistics' && <p>Statistics</p>}
                 {selectedOption === 'Teams' && <p>Teams</p> }
                 {selectedOption === 'Employees' && <p>Employees</p>}
                 {selectedOption === 'Courses' && <p>Courses</p>} 
-                </h1>
-                <div className='md:space-x-4'>
-                    <button>DarkMode</button>
+                </h1>*/}
+                <div className='md:space-x-4 text-pink-700'>
                     <button>Search</button>
+                    <button>DarkMode</button>
                 </div>
             </header>
             <section>
