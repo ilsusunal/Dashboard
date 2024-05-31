@@ -2,7 +2,7 @@ import React from 'react';
 import { useData } from "../contexts/DataContext";
 import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer  } from 'recharts';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d'];
+const COLORS = ['#2e1065', '#4b49ac', '#eab308', '#be185d', '#818cf8', '#a78bfa'];
 
 export function SkillPieCharts(){
     const { compData } = useData();
@@ -27,10 +27,10 @@ export function SkillPieCharts(){
     };
     return (
         <>
-        <div className="md:flex gap-4">
-            <div className='bg-white grow rounded-3xl p-6'>
-                <h2 className="text-gray-500 mb-4">Skills in Development</h2>
-                <ResponsiveContainer width={300} height={300} aspect={1}>
+        <div className="gap-4 pt-4">
+            <div className='bg-white grow rounded-3xl p-6 w-full h-60 mb-4'>
+                <h2 className="text-lavender-400">Skills in Development</h2>
+                <ResponsiveContainer>
                 <PieChart>
                     <Pie
                         dataKey="employees"
@@ -51,9 +51,9 @@ export function SkillPieCharts(){
                 </PieChart>
                 </ResponsiveContainer>
             </div>
-            <div className='bg-white rounded-3xl grow p-6'>
-                <h2 className="text-gray-500 mb-4">Top Skills</h2>
-                <ResponsiveContainer width={300} height={300} aspect={1}>
+            <div className='bg-white rounded-3xl grow p-6 w-full h-60'>
+                <h2 className="text-lavender-400">Top Skills</h2>
+                <ResponsiveContainer>
                 <PieChart>
                     <Pie
                         dataKey="employees"

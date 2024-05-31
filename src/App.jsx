@@ -6,7 +6,7 @@ function App() {
   
   return (
     <>
-     <main className='mx-auto min-h-screen  flex'>
+     <main className='mx-auto min-h-screen md:flex'>
         <SideBar/>
         <MainPage/>
      </main>

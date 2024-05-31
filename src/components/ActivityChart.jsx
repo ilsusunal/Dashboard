@@ -12,10 +12,10 @@ export function ActivityChart(){
 
     return(
         <>
-        <div className='bg-white rounded-3xl text-xs'>
-        <h2 className="text-gray-500 mb-4">Activities</h2>
+        <div className='bg-white rounded-3xl text-xs p-6'>
+        <h2 className="text-lavender-400 mb-4">Activity Hours</h2>
         <ResponsiveContainer width="100%" height={260}>
-        <LineChart data={activity} margin={{top: 20, right: 30, left: 20, bottom: 5,}}>
+        <LineChart data={activity} >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" tickFormatter={formatDate} />
             <YAxis />

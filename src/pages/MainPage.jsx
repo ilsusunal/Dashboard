@@ -17,6 +17,7 @@ export default function MainPage(){
                 {selectedOption === 'Employees' && <p>Employees</p>}
                 {selectedOption === 'Courses' && <p>Courses</p>} 
                 </h1>*/}
+                <h1 className='text-pink-700'>Welcome!</h1>
                 <div className='md:space-x-4 text-pink-700'>
                     <button>Search</button>
                     <button>DarkMode</button>

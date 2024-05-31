@@ -15,6 +15,3 @@ h2{
   @apply text-xl font-bold text-yellow-500
 }
 
-li{
-  @apply hover:bg-pink-700 hover:rounded-full py-2 px-4
-}
