@@ -27,10 +27,10 @@ export function SkillPieCharts(){
     };
     return (
         <>
-        <div className="gap-4 pt-4">
-            <div className='bg-white grow rounded-3xl p-6 w-full h-60 mb-4'>
+        <div className="gap-4 pt-4 h-screen flex flex-col">
+            <div className='bg-white flex-grow rounded-3xl p-4 w-full mb-4 flex flex-col'>
                 <h2 className="text-lavender-400">Skills in Development</h2>
-                <ResponsiveContainer>
+                <div className="flex-grow"><ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                     <Pie
                         dataKey="employees"
@@ -49,11 +49,11 @@ export function SkillPieCharts(){
                     </Pie>
                     <Tooltip content={renderCustomTooltip}/>
                 </PieChart>
-                </ResponsiveContainer>
+                </ResponsiveContainer></div>
             </div>
-            <div className='bg-white rounded-3xl grow p-6 w-full h-60'>
+            <div className='bg-white flex-grow rounded-3xl p-4 w-full mb-4 flex flex-col'>
                 <h2 className="text-lavender-400">Top Skills</h2>
-                <ResponsiveContainer>
+                <div className="flex-grow"><ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                     <Pie
                         dataKey="employees"
@@ -72,7 +72,7 @@ export function SkillPieCharts(){
                     </Pie>
                     <Tooltip content={renderCustomTooltip}/>
                 </PieChart>
-                </ResponsiveContainer>
+                </ResponsiveContainer></div>
             </div>
         </div>
         </>

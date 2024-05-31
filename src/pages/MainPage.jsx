@@ -9,26 +9,11 @@ export default function MainPage(){
     
     return(
         <>
-        <div className="bg-indigo-50 md:rounded-3xl md:m-4 md:w-full py-4 px-8">
-            <header className='md:flex md:justify-between md:my-4'>
-                {/*<h1 className='text-pink-700'>
-                {selectedOption === 'Statistics' && <p>Statistics</p>}
-                {selectedOption === 'Teams' && <p>Teams</p> }
-                {selectedOption === 'Employees' && <p>Employees</p>}
-                {selectedOption === 'Courses' && <p>Courses</p>} 
-                </h1>*/}
-                <h1 className='text-pink-700'>Welcome!</h1>
-                <div className='md:space-x-4 text-pink-700'>
-                    <button>Search</button>
-                    <button>DarkMode</button>
-                </div>
-            </header>
-            <section>
+        <div className="bg-indigo-50 md:rounded-3xl md:m-4 md:w-full py-2 px-4 md:py-4 md:px-8">
                {selectedOption === 'Statistics' && <p><Statistics/></p>}
                 {selectedOption === 'Teams' && <Teams />}
                 {selectedOption === 'Employees' && <p><Employees/></p>}
                 {selectedOption === 'Courses' && <p><Courses/></p>} 
-            </section>
         </div>
         </>
     )
