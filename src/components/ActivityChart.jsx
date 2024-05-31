@@ -3,7 +3,7 @@ import { useData } from "../contexts/DataContext";
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 
 export function ActivityChart(){
-    const {activity, setActivity} = useData();
+    const {activity} = useData();
 
     const formatDate = (dateString) => {
         const options = { month: 'short', day: 'numeric' };
@@ -12,7 +12,7 @@ export function ActivityChart(){
 
     return(
         <>
-        <div className='bg-white rounded-3xl text-xs'>
+        <div className='bg-white rounded-3xl text-xs items-center'>
         <ResponsiveContainer width="100%" height={300}>
         <LineChart data={activity} margin={{top: 20, right: 30, left: 20, bottom: 5,}}>
             <CartesianGrid strokeDasharray="3 3" />

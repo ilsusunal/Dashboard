@@ -15,8 +15,8 @@ export function TableView(){
 
     return(
         <>
-        <table className='bg-white rounded-3xl'>
-        <thead>
+        <table className='bg-white rounded-3xl p-4 space-x-1'>
+        <thead className='p-6'>
           <tr>
             <th>Course Title</th>
             <th>Assigned To</th>
