@@ -17,17 +17,17 @@ export default function Courses(){
                 <div className='flex justify-between items-center text-lavender-400 mb-4'>
                     <h2 className="">Courses</h2>
                     <div className=''>
-                        <button className={`px-1 ${view === 'table' ? 'border-b border-lavender-400 ' : ''}`}
+                        <button className={`px-1 ${view === 'table' ? 'border-b border-lavender-400 text-xs md:text-base' : 'text-xs md:text-base'}`}
                             onClick={() => handleViewChange('table')}>
                             <i className="fa-solid fa-table-list px-1 "/>
                             Table
                         </button>
-                        <button className={`px-1 ${view === 'kanban' ? 'border-b border-lavender-400 ' : ''}`}
+                        <button className={`px-1 ${view === 'kanban' ? 'border-b border-lavender-400 text-xs md:text-base' : 'text-xs md:text-base'}`}
                             onClick={() => handleViewChange('kanban')}>
                             <i className="fa-solid fa-chart-simple px-1"/>
                             Kanban
                         </button> 
-                        <button className="px-3 py-1  ml-4 border rounded-lg border-lavender-400"
+                        <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1  ml-4 border rounded-lg border-lavender-400"
                             onClick={() => {}}>
                             <i className="fa-solid fa-plus px-1 "/>
                             Add

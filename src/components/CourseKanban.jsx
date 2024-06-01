@@ -31,7 +31,7 @@ export function CourseKanban(){
         <DragDropContext onDragEnd={onDragEnd}> 
             <Droppable droppableId="in_progress">
             {(provided) => (
-                <div className="bg-indigo-50 rounded-3xl p-6" ref={provided.innerRef} {...provided.droppableProps}>
+                <div className="bg-indigo-50 rounded-3xl p-6 mb-4 md:mb-0" ref={provided.innerRef} {...provided.droppableProps}>
                     <h3 className="text-pink-700 mb-4 font-bold text-lg">In Progress</h3>
                     {coursesInP.map((course, index) => (
                     <Draggable key={course.title} draggableId={course.title} index={index}>

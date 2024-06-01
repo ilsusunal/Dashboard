@@ -18,7 +18,7 @@ export function Header(){
     return(
         <>
         <header className='flex'>
-                <div className='flex items-center px-4 py-3 grow rounded-xl mr-8 bg-white'>
+                <div className='flex items-center px-4 py-3 grow rounded-xl mr-4 bg-white'>
                     <i className="fa-solid fa-magnifying-glass mr-4 text-pink-700" onClick={() => handleSearch()}/>
                     <input type="text" 
                         placeholder="Search something..." 

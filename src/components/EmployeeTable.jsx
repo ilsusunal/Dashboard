@@ -15,8 +15,8 @@ export function EmployeeTable(){
         <>
         <main className="p-6 bg-white grow rounded-3xl">
         <div className='flex justify-between items-center text-lavender-400 mb-4'>
-           <h2 className="text-lavender-400 mb-4">Employee List</h2>
-            <button className="px-3 py-1 border rounded-lg border-lavender-400"
+           <h2 className="text-lavender-400">Employee List</h2>
+            <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1 border rounded-lg border-lavender-400"
                 onClick={() => {}}>
                 <i className="fa-solid fa-plus px-1 "/>
                 Add
