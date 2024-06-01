@@ -26,7 +26,7 @@ export function TeamCards(){
                     </div>
                     <div className='flip-card-back p-4'>
                         <p className=''>Team: {team.employees.map((emp, empIndex) => (
-                    <p key={empIndex}>#{emp.name}</p>))}</p>
+                            <p key={empIndex}>#{emp.name}</p>))}</p>
                     </div>
                 </div>
                 </div>

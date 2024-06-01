@@ -38,9 +38,9 @@ export function EmployeeTable(){
           <tr>
             <th>Name</th>
             <th>Title</th>
-            <th>Email</th>
+            <th className="hidden md:table-cell">Email</th>
             <th>Score</th>
-            <th>Lessons</th>
+            <th className="hidden md:table-cell">Lessons</th>
             <th className='hidden md:table-cell'>Skills</th>
           </tr>
         </thead>
@@ -49,9 +49,9 @@ export function EmployeeTable(){
             <tr key={index}>
               <td className='font-medium'>{emp.name}</td>
               <td>{emp.title}</td>
-              <td>{emp.email}</td>
+              <td className="hidden md:table-cell">{emp.email}</td>
               <td>{emp.current_score}</td>
-              <td>{emp.lessons_taken}</td>
+              <td className="hidden md:table-cell">{emp.lessons_taken}</td>
               <td className='text-gray-500 hidden md:table-cell'>{emp.skills_being_developed.map((skill, skillIndex) => (
                     <p key={skillIndex}>#{skill}</p>))}</td>
             </tr>
