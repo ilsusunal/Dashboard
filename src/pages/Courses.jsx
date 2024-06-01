@@ -27,7 +27,7 @@ export default function Courses(){
                             <i className="fa-solid fa-chart-simple px-1"/>
                             Kanban
                         </button> 
-                        <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1  ml-4 border-2 rounded-lg border-lavender-400 dark:border-white"
+                        <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1  md:ml-4 border-2 rounded-lg border-lavender-400 dark:border-white"
                             onClick={() => {}}>
                             <i className="fa-solid fa-plus px-1 "/>
                             Add

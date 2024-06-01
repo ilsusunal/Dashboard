@@ -19,14 +19,14 @@ export function TeamCards(){
                 <div className='flip-card-inner'>
                     <div className='flip-card-front p-4'>
                         <p className='border-b-2 dark:border-white mb-2 font-medium'>{team.title}</p>
-                        <div className='flex justify-between'>
-                            <p className='text-gray-500 text-sm'>{team.overall_score}</p>
-                            <p>{team.total_employee_count}</p>
-                        </div>
+                        <span className='text-gray-500 grid grid-cols-2'>
+                            {team.employees.map((emp, empIndex) => (
+                            <p key={empIndex}>#{emp.name}</p>))}
+                        </span>
                     </div>
-                    <div className='flip-card-back p-4'>
-                        <p className=''>Team: {team.employees.map((emp, empIndex) => (
-                            <p key={empIndex}>#{emp.name}</p>))}</p>
+                    <div className='flip-card-back p-4 m-auto'>
+                        <p className=' text-base'>Overall Score: {team.overall_score}</p>
+                        <p>Total Employees: {team.total_employee_count}</p>
                     </div>
                 </div>
                 </div>

@@ -43,11 +43,12 @@ export default function TeamTable(){
                     Add
                 </button>
             </div>
-            <table className='table-auto p-6'>
+            <table className='table-auto'>
                 <thead className=''>
                     <tr>
                         <th>Title</th>
                         <th>Score</th>
+                        <th>Employee</th>
                         <th className='hidden md:table-cell'>Description</th>
                     </tr>
                 </thead>
@@ -58,6 +59,7 @@ export default function TeamTable(){
                         <tr className="cursor-pointer">
                             <td className='font-medium'>{team.title}</td>
                             <td>{team.overall_score}</td>
+                            <td>{team.total_employee_count}</td>
                             <td className='text-gray-500'>
                                 {getShortDescription(team.description)}
                                 {team.description.length > 120 && (
