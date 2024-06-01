@@ -45,7 +45,7 @@ export function Header(){
                     />
                 </div>
                 <button className='rounded-xl bg-white dark:bg-indigo-100 min-w-12' onClick={() => handleClick()}>
-                    {theme === 'dark' ? <i className="fa-solid fa-moon text-lavender-400"/> : <i className="fa-solid fa-sun text-yellow-500"/>}
+                    {theme === 'light' ? <i className="fa-solid fa-moon text-lavender-400"/> : <i className="fa-solid fa-sun text-yellow-500"/>}
                 </button>
             </header>
         </>
