@@ -15,7 +15,7 @@ export function TeamCards(){
             <section className=''>
                 {teams.sort((a, b) => b.current_score - a.current_score)
                 .map((team, index) => (
-                <div key={index} className='w-auto h-40 m-4 flip-card'>
+                <div key={index} className='w-auto h-32 m-2 flip-card'>
                 <div className='flip-card-inner'>
                     <div className='flip-card-front p-4'>
                         <p className='border-b-2 dark:border-white mb-2 font-medium'>{team.title}</p>

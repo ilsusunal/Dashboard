@@ -1,0 +1,86 @@
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useData } from "../contexts/DataContext";
+
+export function EmployeeModal({ isOpen, onClose, onSubmit }) {
+    const { teams } = useData();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+        defaultValues: {
+          current_score: 0,
+          email: "",
+          lessons_taken: 0,
+          name: "",
+          skills_being_developed: [],
+          title: ""
+        }
+    });
+    
+    const onSubmitForm = (data) => {
+        onSubmit(data);
+        onClose();
+        reset();
+    };
+
+    if (!isOpen) return null;
+
+    return (
+    <>
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-black bg-opacity-50" onClick={onClose}></div>
+      <div className="bg-white dark:bg-indigo-100 p-6 rounded-lg max-w-sm w-full mx-4 z-10">
+        <div className='flex justify-between items-center mb-4'>
+            <h3 className="text-lg font-medium">Add Employee</h3>
+            <button className="px-4 py-2 bg-yellow-400 text-white rounded-full"
+                onClick={onClose}>
+            <i className="fa-solid fa-xmark"/>
+            </button>
+        </div>
+        <form onSubmit={handleSubmit(onSubmitForm)} className="mt-4">
+            <div className="mb-2">
+            <input
+              type="text"
+              {...register('name', { required: "Name is required" })}
+              className="mt-1 p-2 border rounded w-full"
+              placeholder='Name'
+            />
+            {errors.name && <p className="text-pink-700 text-xs">{errors.name.message}</p>}
+            </div>
+            <div className="mb-2">
+            <input
+              type="text"
+              {...register('title', { required: "Title is required" })}
+              className="mt-1 p-2 border rounded w-full"
+              placeholder='Title'
+            />
+            {errors.title && <p className="text-pink-700 text-xs">{errors.title.message}</p>}
+            </div>
+            <div className="mb-2">
+            <input
+              type="email"
+              {...register('email', { required: "Email is required", pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" } })}
+              className="mt-1 p-2 border rounded w-full"
+              placeholder='Email'
+            />
+                {errors.email && <p className="text-pink-700 text-xs">{errors.email.message}</p>}
+            </div>
+            <div className="mb-2">
+                <select {...register('team', { required: "Team is required" })}
+                    className="mt-1 p-2 border rounded w-full">
+                    {teams.map((team, index) => (
+                        <option key={index} value={team.title}>{team.title}</option>
+                    ))}
+                </select>
+                {errors.team && <p className="text-pink-700 text-xs">{errors.team.message}</p>}
+            </div>
+            <button
+              type="submit"
+              className="grow px-4 py-2 text-sm font-medium text-white bg-lavender-400 rounded-xl"
+            >
+              Submit
+            </button>
+        </form>
+      </div>
+    </div>
+    </>
+    );
+}

@@ -1,22 +1,25 @@
 import React, {useState} from 'react';
 import { useData } from "../contexts/DataContext";
+import { DescriptionModal } from '../modal/DescriptionModal';
+import { TeamModal } from '../modal/TeamModal';
+import { EmployeeModal } from '../modal/EmployeeModal';
 
 export default function TeamTable(){
-    const { teams} = useData();
+    const { teams } = useData();
     const [modalContent, setModalContent] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isTeamModalOpen, setIsTeamModalOpen] = useState(false);
+    const [isEmployeeModalOpen, setIsEmployeeModalOpen] = useState(false);
 
     const getShortDescription = (description) => {
-        const maxLength = 120;
+        const maxLength = 60;
         if (description.length > maxLength) {
             return capitalizeFirstLetter(description.substring(0, maxLength)) + "...";
         }
         return capitalizeFirstLetter(description);
     };
 
-    const capitalizeFirstLetter = (string) => {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    };
+    const capitalizeFirstLetter = (string) => { return string.charAt(0).toUpperCase() + string.slice(1);};
 
     const handleSeeMore = (description) => {
         setModalContent(capitalizeFirstLetter(description));
@@ -28,6 +31,19 @@ export default function TeamTable(){
         setModalContent(null);
     };
 
+    const handleAddTeam = () => {setIsTeamModalOpen(true); };
+
+    const closeTeamModal = () => { setIsTeamModalOpen(false);};
+
+    const handleTeamSubmit = (data) => {
+        console.log("Submitted team data:", data);
+        //post request here 
+    };
+
+    const handleAddEmployee = () => {setIsEmployeeModalOpen(true);};
+
+    const closeEmployeeModal = () => {setIsEmployeeModalOpen(false);};
+
     if (!teams) {
         return <div>Loading...</div>;
     }
@@ -37,19 +53,26 @@ export default function TeamTable(){
         <main className="p-6 bg-white dark:bg-indigo-100 grow rounded-3xl">
             <div className='flex justify-between items-center text-lavender-400 mb-4'>
                 <h2 className="text-lavender-400 ">Team List</h2>
-                <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1 border rounded-lg border-lavender-400  dark:border-white dark:border-2"
-                    onClick={() => {}}>
-                    <i className="fa-solid fa-plus px-1 " />
-                    Add
-                </button>
+                <div >
+                    <button className="mr-1 md:mr-4 px-2 py-1 text-xs md:text-base md:px-3 md:py-1 border-2 rounded-lg border-lavender-400  dark:border-white dark:border-2"
+                        onClick={() => {handleAddTeam()}}>
+                        <i className="fa-solid fa-plus px-1 " />
+                        Team
+                    </button>
+                    <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1 border-2 rounded-lg border-lavender-400  dark:border-white dark:border-2"
+                        onClick={() => {handleAddEmployee()}}>
+                        <i className="fa-solid fa-plus px-1 " />
+                        Member
+                    </button>  
+                </div>
             </div>
             <table className='table-auto'>
                 <thead className=''>
                     <tr>
                         <th>Title</th>
                         <th>Score</th>
-                        <th>Employee</th>
-                        <th className='hidden md:table-cell'>Description</th>
+                        <th className='hidden md:table-cell'>Employee</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,10 +82,10 @@ export default function TeamTable(){
                         <tr className="cursor-pointer">
                             <td className='font-medium'>{team.title}</td>
                             <td>{team.overall_score}</td>
-                            <td>{team.total_employee_count}</td>
+                            <td className='hidden md:table-cell text-center'>{team.total_employee_count}</td>
                             <td className='text-gray-500'>
                                 {getShortDescription(team.description)}
-                                {team.description.length > 120 && (
+                                {team.description.length > 60 && (
                                 <span className="text-yellow-500 cursor-pointer" 
                                     onClick={(e) => {
                                     e.stopPropagation();
@@ -75,22 +98,21 @@ export default function TeamTable(){
                 </tbody>
                 </table>
             </main>
-
-            {isModalOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white dark:bg-indigo-100 500 p-6 rounded-lg max-w-sm w-full mx-4">
-                        <div className='flex justify-between items-center mb-4'>
-                           <h3 className="text-lg font-semibold">Description</h3> 
-                           <button 
-                            className="px-4 py-2 bg-yellow-400 text-white rounded-full"
-                            onClick={closeModal}
-                        ><i className="fa-solid fa-xmark"/></button>
-                        </div>
-                        <p>{modalContent}</p>
-                        
-                    </div>
-                </div>
-            )}
+            <DescriptionModal
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                content={modalContent}
+            />
+            <TeamModal
+                isOpen={isTeamModalOpen}
+                onClose={closeTeamModal}
+                onSubmit={handleTeamSubmit}
+            />
+            <EmployeeModal
+                isOpen={isEmployeeModalOpen}
+                onClose={closeEmployeeModal}
+                onSubmit={handleAddEmployee}
+            />
         </>
     )
 }
