@@ -32,16 +32,16 @@ export function KanbanView(){
             <Droppable droppableId="in_progress">
             {(provided) => (
                 <div className="bg-indigo-50 rounded-3xl p-6" ref={provided.innerRef} {...provided.droppableProps}>
-                    <h3>In Progress</h3>
+                    <h3 className="text-pink-700 mb-4 font-bold text-lg">In Progress</h3>
                     {coursesInP.map((course, index) => (
                     <Draggable key={course.title} draggableId={course.title} index={index}>
                     {(provided) => (
                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                             <div className="bg-white p-4 my-2" >
-                                <h3>{course.title}</h3>
+                                <h3 className="font-bold border-b-2 mb-4 pb-1">{course.title}</h3>
                                 <p>{course.assigned_to}</p>
-                                <p>{course.description}</p>
-                                <p>{course.due_date}</p>
+                                <p className="text-gray-500 my-2">{course.description}</p>
+                                <p className=" text-yellow-500">due to: {course.due_date}</p>
                             </div>
                         </div>
                     )}
@@ -53,17 +53,17 @@ export function KanbanView(){
             </Droppable>
             <Droppable droppableId="upcoming">
             {(provided) => (
-                <div className="bg-indigo-50 rounded-3xl p-6 my-4" ref={provided.innerRef} {...provided.droppableProps}>
-                    <h3>Upcoming</h3>
+                <div className="bg-indigo-50 rounded-3xl p-6" ref={provided.innerRef} {...provided.droppableProps}>
+                    <h3 className="text-pink-700 mb-4 font-bold text-lg">Upcoming</h3>
                     {coursesUpcoming.map((course, index) => (
                         <Draggable key={course.title} draggableId={course.title} index={index}>
                         {(provided) => (
                             <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                 <div className="bg-white p-4 my-2">
-                                    <h3>{course.title}</h3>
+                                    <h3 className="font-bold border-b-2 mb-4 pb-1">{course.title}</h3>
                                     <p>{course.assigned_to}</p>
-                                    <p>{course.description}</p>
-                                    <p>{course.due_date}</p>
+                                    <p className="text-gray-500 my-2">{course.description}</p>
+                                    <p className=" text-yellow-500">due to: {course.due_date}</p>
                                 </div>
                             </div>
                         )}
