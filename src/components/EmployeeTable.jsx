@@ -13,10 +13,10 @@ export function EmployeeTable(){
     };
     return(
         <>
-        <main className="p-6 bg-white grow rounded-3xl">
+        <main className="p-6 bg-white dark:bg-indigo-100 grow rounded-3xl">
         <div className='flex justify-between items-center text-lavender-400 mb-4'>
            <h2 className="text-lavender-400">Employee List</h2>
-            <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1 border rounded-lg border-lavender-400"
+            <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1 border-2 rounded-lg border-lavender-400 dark:border-white"
                 onClick={() => {}}>
                 <i className="fa-solid fa-plus px-1 "/>
                 Add

@@ -9,7 +9,7 @@ export function EmployeeCards(){
 
     return(
         <>
-        <main className="p-6 bg-white grow rounded-3xl">
+        <main className="p-6 bg-white dark:bg-indigo-100 grow rounded-3xl">
             <h2 className="text-lavender-400 mb-4">Employee Overview</h2>
             <section className='grid grid-cols-2 md:grid-cols-3'>
                 {teams.map((team, teamIndex) => (
@@ -20,7 +20,7 @@ export function EmployeeCards(){
                                 {empIndex % 3 === 0 ? <i className="fa-solid fa-user-tie text-yellow-500 "/> :
                                  empIndex % 3 === 1 ? <i className="fa-solid fa-user-astronaut text-pink-500"/> : 
                                  <i className="fa-solid fa-user-ninja text-lavender-200"/>}
-                                <p className='mb-2 text-xs md:font-sm text-center'>{emp.name}</p>
+                                <p className='mb-2 text-xs md:font-sm text-center dark:text-white dark:font-bold'>{emp.name}</p>
                             </div>
                             <div className='flip-card-back p-4 '>
                                 <p className='text-xs text-center'>{emp.title}</p>

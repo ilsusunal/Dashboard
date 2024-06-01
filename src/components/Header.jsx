@@ -27,8 +27,8 @@ export function Header(){
     return(
         <>
         <header className='flex'>
-                <div className='flex items-center px-4 py-3 grow rounded-xl mr-4 bg-white'>
-                    <i className="fa-solid fa-magnifying-glass mr-4 text-pink-700" onClick={() => handleSearch()}/>
+                <div className='flex items-center px-4 py-3 grow rounded-xl mr-4 bg-white dark:bg-indigo-100'>
+                    <i className="fa-solid fa-magnifying-glass mr-4 text-lavender-400 dark:text-yellow-500" onClick={() => handleSearch()}/>
                     <input type="text" 
                         placeholder="Search something..." 
                         value={searchWord}
@@ -36,7 +36,9 @@ export function Header(){
                         className='bg-transparent flex-1 outline-none text-gray-600 text-sm '
                     />
                 </div>
-                <button className='rounded-xl bg-white min-w-12' onClick={() => handleClick()}><i className="fa-solid fa-moon text-lavender-400"/></button>
+                <button className='rounded-xl bg-white dark:bg-indigo-100 min-w-12' onClick={() => handleClick()}>
+                    {theme === 'dark' ? <i className="fa-solid fa-moon text-lavender-400"/> : <i className="fa-solid fa-sun text-yellow-500"/>}
+                </button>
             </header>
         </>
     )

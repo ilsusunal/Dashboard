@@ -4,7 +4,7 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background: #1e1b4b;
+  
 }
 
 h1{
@@ -16,7 +16,7 @@ h2{
 }
 
 tr {
-  @apply text-left  border-b border-gray-200
+  @apply text-left  border-b border-gray-200 dark:border-white dark:border-b-2
 }
 
 th{
@@ -43,12 +43,12 @@ td{
 
 .flip-card-front, .flip-card-back {
   backface-visibility: hidden;
-  @apply absolute rounded-lg border-2 border-pink-700 w-full h-full
+  @apply absolute rounded-lg border-2 border-pink-700 dark:border-indigo-800 w-full h-full
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
-  @apply text-white bg-pink-700 
+  @apply text-white bg-pink-700 dark:bg-indigo-800 
 }
 
 

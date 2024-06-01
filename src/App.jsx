@@ -6,7 +6,7 @@ function App() {
   
   return (
     <>
-     <main className='mx-auto min-h-screen md:flex'>
+     <main className='bg-indigo-950 dark:bg-[#1a1a1a] mx-auto min-h-screen md:flex'>
         <SideBar/>
         <MainPage/>
      </main>

@@ -34,12 +34,12 @@ export default function TeamTable(){
 
     return(
         <>
-        <main className="p-6 bg-white grow rounded-3xl">
+        <main className="p-6 bg-white dark:bg-indigo-100 grow rounded-3xl">
             <div className='flex justify-between items-center text-lavender-400 mb-4'>
                 <h2 className="text-lavender-400 ">Team List</h2>
-                <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1 border rounded-lg border-lavender-400"
+                <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1 border rounded-lg border-lavender-400  dark:border-white dark:border-2"
                     onClick={() => {}}>
-                    <i className="fa-solid fa-plus px-1" />
+                    <i className="fa-solid fa-plus px-1 " />
                     Add
                 </button>
             </div>
@@ -76,7 +76,7 @@ export default function TeamTable(){
 
             {isModalOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white 500 p-6 rounded-lg max-w-sm w-full mx-4">
+                    <div className="bg-white dark:bg-indigo-100 500 p-6 rounded-lg max-w-sm w-full mx-4">
                         <div className='flex justify-between items-center mb-4'>
                            <h3 className="text-lg font-semibold">Description</h3> 
                            <button 

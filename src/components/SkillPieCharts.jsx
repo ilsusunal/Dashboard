@@ -28,7 +28,7 @@ export function SkillPieCharts(){
     return (
         <>
         <div className="gap-4 pt-4 h-screen flex flex-col">
-            <div className='bg-white flex-grow rounded-3xl p-4 w-full mb-4 flex flex-col'>
+            <div className='bg-white dark:bg-indigo-100 flex-grow rounded-3xl p-4 w-full mb-4 flex flex-col'>
                 <h2 className="text-lavender-400">Skills in Development</h2>
                 <div className="flex-grow"><ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -51,7 +51,7 @@ export function SkillPieCharts(){
                 </PieChart>
                 </ResponsiveContainer></div>
             </div>
-            <div className='bg-white flex-grow rounded-3xl p-4 w-full mb-4 flex flex-col'>
+            <div className='bg-white dark:bg-indigo-100 flex-grow rounded-3xl p-4 w-full mb-4 flex flex-col'>
                 <h2 className="text-lavender-400">Top Skills</h2>
                 <div className="flex-grow"><ResponsiveContainer width="100%" height="100%">
                 <PieChart>

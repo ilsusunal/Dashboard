@@ -23,7 +23,7 @@ export function CourseTable(){
 
     return(
         <>
-        <div className='mb-4 border-b-4 border-lavender-400'>
+        <div className='mb-4 border-b-4 border-lavender-400 '>
           <button
           className={`text-xs md:text-base py-1 px-2 rounded-t ${status === 'in_progress' ? 'bg-lavender-400 text-white font-bold' : 'text-pink-700 font-bold'}`}
           onClick={() => handleCourseStatus('in_progress')}>In Progress</button>

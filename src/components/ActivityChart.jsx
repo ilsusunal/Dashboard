@@ -12,7 +12,7 @@ export function ActivityChart(){
 
     return(
         <>
-        <div className='bg-white rounded-3xl text-xs p-6'>
+        <div className='bg-white dark:bg-indigo-100 rounded-3xl text-xs p-6'>
         <h2 className="text-lavender-400 mb-4">Activity Hours</h2>
         <ResponsiveContainer width="100%" height={260}>
         <LineChart data={activity} >
