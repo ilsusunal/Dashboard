@@ -1,6 +1,5 @@
 #  Dashboard UI
 
-## Overview
  Dashboard UI page as an assignment from TrainIq. 
 
  Link to website: [Click!](https://dashboardui-pp5u.onrender.com/)
