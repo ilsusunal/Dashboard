@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCourseContext } from '../contexts/CourseContext';
-import { TableView } from "../components/TableView";
+import { CourseTable } from "../components/CourseTable";
 import { KanbanView } from "../components/KanbanView";
 import { Header } from "../components/Header";
 import { CourseCards } from '../components/CourseCards';
@@ -27,9 +27,14 @@ export default function Courses(){
                             <i className="fa-solid fa-chart-simple px-1"/>
                             Kanban
                         </button> 
+                        <button className="px-3 py-1  ml-4 border rounded-lg border-lavender-400"
+                            onClick={() => {}}>
+                            <i className="fa-solid fa-plus px-1 "/>
+                            Add
+                        </button> 
                     </div>
                 </div>
-                    {view === 'table' ? <TableView /> : <KanbanView/>}
+                    {view === 'table' ? <CourseTable /> : <KanbanView/>}
                 </div>
             </section>
             <section>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useData } from '../contexts/DataContext';
 import { useCourseContext } from '../contexts/CourseContext';
 
-export function TableView(){
+export function CourseTable(){
     const {coursesInP, coursesUpcoming} = useData();
     const { status, handleCourseStatus } = useCourseContext();
 

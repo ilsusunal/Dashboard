@@ -1,13 +1,13 @@
 import React from 'react';
 import { useData } from '../contexts/DataContext';
 
-export function TeamCards(){
+export function EmployeeCards(){
     const { teams} = useData();
 
     return(
         <>
         <main className="p-6 bg-white grow rounded-3xl">
-            <h2 className="text-lavender-400 mb-4">Team Overview</h2>
+            <h2 className="text-lavender-400 mb-4">Employee Overview</h2>
             <section className=''>
                 {teams.sort((a, b) => b.current_score - a.current_score)
                 .map((team, index) => (
