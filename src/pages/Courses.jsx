@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import { useData } from "../contexts/DataContext";
+import React from 'react';
 import { useCourseContext } from '../contexts/CourseContext';
 import { TableView } from "../components/TableView";
 import { KanbanView } from "../components/KanbanView";
