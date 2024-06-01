@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useTheme } from "../contexts/DarkModeContext";
 
 export function Header(){
     const [searchWord, setSearchWord] = useState('');
+    const { theme, toggleTheme  } = useTheme();
+    const [isActive, setIsActive] = useState(false);
+    console.log("Dark-mode check:", theme);
 
     const handleSearch = () => {
         if (searchWord.trim() !== '') {
@@ -15,6 +19,11 @@ export function Header(){
         setSearchWord(e.target.value);
         handleSearch();
     };
+    
+    const handleClick = () => {
+        setIsActive(!isActive);
+        toggleTheme();
+      };
     return(
         <>
         <header className='flex'>
@@ -27,7 +36,7 @@ export function Header(){
                         className='bg-transparent flex-1 outline-none text-gray-600 text-sm '
                     />
                 </div>
-                <button className='rounded-xl bg-white min-w-12'><i className="fa-solid fa-moon text-lavender-400"/></button>
+                <button className='rounded-xl bg-white min-w-12' onClick={() => handleClick()}><i className="fa-solid fa-moon text-lavender-400"/></button>
             </header>
         </>
     )
