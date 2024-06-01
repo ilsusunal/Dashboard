@@ -15,3 +15,17 @@ h2{
   @apply text-xl font-bold text-yellow-500
 }
 
+tr {
+  @apply text-left 
+}
+
+th{
+  @apply py-3 px-6
+}
+
+td{
+  @apply py-3 px-6
+}
+
+
+

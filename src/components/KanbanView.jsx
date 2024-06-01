@@ -1,4 +1,6 @@
-export function KanbanView(){
+import React from 'react';
+
+export function KanbanView({ courses }){
     return(
         <>
         </>

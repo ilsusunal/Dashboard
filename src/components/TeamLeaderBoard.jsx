@@ -24,7 +24,8 @@ export function TeamLeaderBoard(){
             </section>
             {selectedTeam && (
             <section>
-            <div className="grid grid-cols-4 py-2 border-b-2 border-gray-200 font-bold  text-sm">
+            <div className="grid grid-cols-5 py-2 border-b-2 border-gray-200 font-bold  text-sm">
+                <div className="">Ranking</div>
                 <div className="">Employee</div>
                 <div className="text-center ">Current Score</div>
                 <div className="text-center ">Lessons Taken</div>
@@ -34,13 +35,11 @@ export function TeamLeaderBoard(){
                 .slice()
                 .sort((a, b) => b.current_score - a.current_score)
                 .map((employee, index) => (
-                    <div key={index} className="grid grid-cols-4 py-2 border-b border-gray-200">
-                        <div className='flex'>
-                            <p className="text-sm font-bold text-yellow-500">{index + 1}.</p>
-                            <div>
-                                <p className="text-sm font-bold">{employee.name}</p>
-                                <p className="text-xs md:text-sm text-gray-500">{employee.title}</p>
-                            </div>
+                    <div key={index} className="grid grid-cols-5 py-2 border-b border-gray-200">
+                        <p className="text-sm font-bold text-yellow-500">{index + 1}.</p>
+                        <div>
+                            <p className="text-sm font-bold">{employee.name}</p>
+                            <p className="text-xs md:text-sm text-gray-500">{employee.title}</p>
                         </div>
                         <div className="text-center">
                             <p className="text-sm font-bold">{employee.current_score}</p>
