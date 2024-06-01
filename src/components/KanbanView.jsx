@@ -1,35 +1,81 @@
 import React from 'react';
+import { useData } from '../contexts/DataContext';
+import { useCourseContext } from '../contexts/CourseContext';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 export function KanbanView(){
-    return(
-    <>
-    <main className='md:flex gap-4'>
-      <div className="bg-indigo-50 rounded-3xl p-6 my-4">
-        <h3>All</h3>
-        <div className="">
-            <h3>title</h3>
-            <p>ins</p>
-            <p>desc</p>
-        </div>
-    </div>
-    <div className="bg-indigo-50 rounded-3xl p-6 my-4">
-        <h3>All</h3>
-        <div className="">
-            <h3>title</h3>
-            <p>ins</p>
-            <p>desc</p>
-        </div>
-    </div>
-    <div className="bg-indigo-50 rounded-3xl p-6 my-4">
-        <h3>All</h3>
-        <div className="">
-            <h3>title</h3>
-            <p>ins</p>
-            <p>desc</p>
-        </div>
-    </div>  
-    </main>
-    
-    </>
-    )
+    const {coursesInP, coursesUpcoming} = useData();
+    const { handleCourseStatus } = useCourseContext();
+
+    const onDragEnd = (result) => {
+        const { source, destination, draggableId } = result;
+        if (!destination) return;
+
+        if (
+            source.droppableId !== destination.droppableId ||
+            source.index !== destination.index
+        ) {
+            
+            const newStatus =
+                destination.droppableId === 'in_progress'
+                    ? 'In Progress'
+                    : 'Upcoming';
+
+            handleCourseStatus(draggableId, newStatus);
+        }
+    };
+
+    return (
+        <>
+        <main className='md:flex gap-4'>
+        <DragDropContext onDragEnd={onDragEnd}> 
+            <Droppable droppableId="in_progress">
+            {(provided) => (
+                <div className="bg-indigo-50 rounded-3xl p-6" ref={provided.innerRef} {...provided.droppableProps}>
+                    <h3>In Progress</h3>
+                    {coursesInP.map((course, index) => (
+                    <Draggable key={course.title} draggableId={course.title} index={index}>
+                    {(provided) => (
+                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                            <div className="bg-white p-4 my-2" >
+                                <h3>{course.title}</h3>
+                                <p>{course.assigned_to}</p>
+                                <p>{course.description}</p>
+                                <p>{course.due_date}</p>
+                            </div>
+                        </div>
+                    )}
+                    </Draggable>
+                ))}
+                    {provided.placeholder}
+                </div>
+                )}
+            </Droppable>
+            <Droppable droppableId="upcoming">
+            {(provided) => (
+                <div className="bg-indigo-50 rounded-3xl p-6 my-4" ref={provided.innerRef} {...provided.droppableProps}>
+                    <h3>Upcoming</h3>
+                    {coursesUpcoming.map((course, index) => (
+                        <Draggable key={course.title} draggableId={course.title} index={index}>
+                        {(provided) => (
+                            <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                <div className="bg-white p-4 my-2">
+                                    <h3>{course.title}</h3>
+                                    <p>{course.assigned_to}</p>
+                                    <p>{course.description}</p>
+                                    <p>{course.due_date}</p>
+                                </div>
+                            </div>
+                        )}
+                        </Draggable>
+                    ))}
+                    {provided.placeholder}
+                </div>
+                )}
+            </Droppable>
+           
+        </DragDropContext>
+        </main>
+        </>
+    );
 }

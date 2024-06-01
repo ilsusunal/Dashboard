@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { CourseProvider } from './CourseContext';
 
 const DataContext = createContext();
 
@@ -37,7 +38,9 @@ export const DataProvider = ({ children }) => {
     <DataContext.Provider value={{ topEmployees, teams, selectedTeam, 
     setSelectedTeam, activity, setActivity,compData, setCompData, 
     coursesInP, coursesUpcoming}}>
-      {children}
+      <CourseProvider>
+        {children}
+      </CourseProvider>
     </DataContext.Provider>
   );
 };
