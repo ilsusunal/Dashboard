@@ -24,38 +24,44 @@ export function TeamLeaderBoard(){
             </section>
             {selectedTeam && (
             <section>
-            <div className="grid grid-cols-5 py-2 border-b-2 border-gray-200 dark:border-white font-bold  text-sm">
-                <div className="">Ranking</div>
-                <div className="">Employee</div>
-                <div className="text-center ">Current Score</div>
-                <div className="text-center ">Lessons Taken</div>
-                <div className="text-end">Developed Skills</div>
-            </div>
-            {selectedTeam.employees
-                .slice()
-                .sort((a, b) => b.current_score - a.current_score)
-                .map((employee, index) => (
-                    <div key={index} className="grid grid-cols-5 py-2 border-b border-gray-200 dark:border-white">
-                        <p className="text-sm font-bold text-yellow-500">{index + 1}.</p>
-                        <div>
+            <table className="table-fixed w-full">
+                <thead>
+                    <tr className="">
+                        <th >Rank</th>
+                        <th>Employee</th>
+                        <th>Current Score</th>
+                        <th >Lessons Taken</th>
+                        <th className="hidden md:table-cell">Developed Skills</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {selectedTeam.employees
+                    .slice()
+                    .sort((a, b) => b.current_score - a.current_score)
+                    .map((employee, index) => (
+                    <tr key={index} className="border-b border-gray-200 dark:border-white">
+                        <td className="py-2 text-sm font-bold text-yellow-500">{index + 1}.</td>
+                        <td>
                             <p className="text-sm font-bold">{employee.name}</p>
                             <p className="text-xs md:text-sm text-gray-500">{employee.title}</p>
-                        </div>
-                        <div className="text-center">
+                        </td>
+                        <td>
                             <p className="text-sm font-bold">{employee.current_score}</p>
-                        </div>
-                        <div className="text-center">
+                        </td>
+                        <td>
                             <p className="font-bold">{employee.lessons_taken}</p>
-                        </div>
-                        <div className="text-end">
+                        </td>
+                        <td className="text-end hidden md:table-cell">
                             <ul className="text-xs md:text-sm text-gray-500">
                                 {employee.skills_being_developed.map((skill, skillIndex) => (
-                                    <li key={skillIndex}>#{skill}</li>
+                                <li key={skillIndex}>#{skill}</li>
                                 ))}
                             </ul>
-                        </div>
-                    </div>
+                        </td>
+                    </tr>
                 ))}
+                </tbody>
+            </table>
         </section>
             )}
         </div>

@@ -20,7 +20,7 @@ export function EmployeeCards(){
                                 {empIndex % 3 === 0 ? <i className="fa-solid fa-user-tie text-yellow-500 "/> :
                                  empIndex % 3 === 1 ? <i className="fa-solid fa-user-astronaut text-pink-500"/> : 
                                  <i className="fa-solid fa-user-ninja text-lavender-200"/>}
-                                <p className='mb-2 text-xs md:font-sm text-center dark:text-white dark:font-bold'>{emp.name}</p>
+                                <p className='mb-2 text-xs md:font-sm text-center'>{emp.name}</p>
                             </div>
                             <div className='flip-card-back p-4 '>
                                 <p className='text-xs text-center'>{emp.title}</p>

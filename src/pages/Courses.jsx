@@ -10,7 +10,7 @@ export default function Courses(){
 
     return(
         <>
-        <main className=' md:grid md:grid-cols-3 mt-4 gap-4'>
+        <main className=' md:grid md:grid-cols-3 gap-4'>
             <section className="mb-4 col-span-2 flex flex-col gap-4 md:mr-4">
                 <Header/>
                 <div className='p-6 bg-white dark:bg-indigo-100 grow rounded-3xl'>
@@ -26,12 +26,7 @@ export default function Courses(){
                             onClick={() => handleViewChange('kanban')}>
                             <i className="fa-solid fa-chart-simple px-1"/>
                             Kanban
-                        </button> 
-                        <button className="px-2 py-1 text-xs md:text-base md:px-3 md:py-1  md:ml-4 border-2 rounded-lg border-lavender-400 dark:border-white"
-                            onClick={() => {}}>
-                            <i className="fa-solid fa-plus px-1 "/>
-                            Add
-                        </button> 
+                        </button>
                     </div>
                 </div>
                     {view === 'table' ? <CourseTable /> : <CourseKanban/>}

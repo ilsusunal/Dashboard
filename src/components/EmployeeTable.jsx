@@ -46,7 +46,7 @@ export function EmployeeTable(){
     <table className='table-auto p-6 '>
       <thead className=''>
         <tr>
-          <th>Name</th>
+          <th>Employee</th>
           <th>Title</th>
           <th className="hidden md:table-cell">Email</th>
           <th>Score</th>

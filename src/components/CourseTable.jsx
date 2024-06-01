@@ -17,9 +17,6 @@ export function CourseTable(){
   
     const filteredCourses = getFilteredCourses();
     
-    const handleDueDateClick = (index) => {
-     // calendar popup logic
-    };
 
     return(
         <>
@@ -46,7 +43,7 @@ export function CourseTable(){
               <td className='font-medium'>{course.title}</td>
               <td>{course.assigned_to}</td>
               <td className='text-gray-500 hidden md:table-cell'>{course.description}</td>
-              <td onClick={() => handleDueDateClick(index)}>{course.due_date}</td>
+              <td>{course.due_date}</td>
             </tr>
           ))}
         </tbody>

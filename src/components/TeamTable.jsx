@@ -69,7 +69,7 @@ export default function TeamTable(){
             <table className='table-auto'>
                 <thead className=''>
                     <tr>
-                        <th>Title</th>
+                        <th>Team</th>
                         <th>Score</th>
                         <th className='hidden md:table-cell'>Employee</th>
                         <th>Description</th>
