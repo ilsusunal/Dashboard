@@ -3,7 +3,7 @@ import { useData } from '../contexts/DataContext';
 import { useCourseContext } from '../contexts/CourseContext';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-export function KanbanView(){
+export function CourseKanban(){
     const {coursesInP, coursesUpcoming} = useData();
     const { handleCourseStatus } = useCourseContext();
 
@@ -39,8 +39,8 @@ export function KanbanView(){
                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                             <div className="bg-white p-4 my-2" >
                                 <h3 className="font-bold border-b-2 mb-4 pb-1">{course.title}</h3>
-                                <p>{course.assigned_to}</p>
                                 <p className="text-gray-500 my-2">{course.description}</p>
+                                <p className=" text-lavender-300">assigned to: {course.assigned_to}</p>
                                 <p className=" text-yellow-500">due to: {course.due_date}</p>
                             </div>
                         </div>
@@ -61,8 +61,8 @@ export function KanbanView(){
                             <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                 <div className="bg-white p-4 my-2">
                                     <h3 className="font-bold border-b-2 mb-4 pb-1">{course.title}</h3>
-                                    <p>{course.assigned_to}</p>
                                     <p className="text-gray-500 my-2">{course.description}</p>
+                                    <p className=" text-lavender-300">assigned to: {course.assigned_to}</p>
                                     <p className=" text-yellow-500">due to: {course.due_date}</p>
                                 </div>
                             </div>

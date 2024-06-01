@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCourseContext } from '../contexts/CourseContext';
 import { CourseTable } from "../components/CourseTable";
-import { KanbanView } from "../components/KanbanView";
+import { CourseKanban } from "../components/CourseKanban";
 import { Header } from "../components/Header";
 import { CourseCards } from '../components/CourseCards';
 
@@ -34,7 +34,7 @@ export default function Courses(){
                         </button> 
                     </div>
                 </div>
-                    {view === 'table' ? <CourseTable /> : <KanbanView/>}
+                    {view === 'table' ? <CourseTable /> : <CourseKanban/>}
                 </div>
             </section>
             <section>
