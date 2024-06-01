@@ -12,19 +12,19 @@ h1{
 }
 
 h2{
-  @apply text-xl font-bold text-yellow-500
+  @apply text-xl font-bold
 }
 
 tr {
-  @apply text-left 
+  @apply text-left  border-b border-gray-200
 }
 
 th{
-  @apply py-3 px-6
+  @apply py-1 md:py-3 px-2 md:px-6 md:text-sm text-xs
 }
 
 td{
-  @apply py-3 px-6
+  @apply py-1 md:py-3 px-2 md:px-6 text-xs md:text-sm  
 }
 
 

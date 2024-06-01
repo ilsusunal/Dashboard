@@ -17,8 +17,8 @@ export function TableView({ courses }){
         <table className='p-6'>
         <thead className=''>
           <tr>
-            <th>Course Title</th>
-            <th>Assigned To</th>
+            <th>Course</th>
+            <th>Assigned</th>
             <th>Status</th>
             <th>Description</th>
             <th>Due Date</th>
@@ -27,7 +27,7 @@ export function TableView({ courses }){
         <tbody>
           {courses.map((course, index) => (
             <tr key={index}>
-              <td>{course.title}</td>
+              <td className='font-bold'>{course.title}</td>
               <td>{course.assigned_to}</td>
               <td onClick={() => setEditableIndex(index)}>{editableIndex === index ? (
                 <select onChange={(e) => handleStatusChange(index, e.target.value)} value={course.status}>
@@ -38,7 +38,7 @@ export function TableView({ courses }){
               ) : (
                 course.status
               )}</td>
-              <td>{course.description}</td>
+              <td className='text-gray-500'>{course.description}</td>
               <td onClick={() => handleDueDateClick(index)}>{course.due_date}</td>
             </tr>
           ))}

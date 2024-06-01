@@ -22,7 +22,7 @@ export default function SideBar(){
             <ul className="flex justify-around items-center md:block md:space-y-8">
                 {['Statistics', 'Teams', 'Employees', 'Courses'].map((option) => (
                     <li key={option} className={`${selectedOption === option ? 'bg-indigo-900 rounded-t md:rounded-md text-xs md:text-base px-1 md:px-4 py-2 md:py-3' : 'text-xs md:text-base px-1 py-2'}`}>
-                        <i className={`fa-solid ${option === 'Statistics' ? 'fa-chart-simple' : option === 'Teams' ? 'fa-people-group' : option === 'Employees' ? 'fa-user' : 'fa-book'}`}></i>
+                        <i className={`fa-solid ${option === 'Statistics' ? 'fa-chart-line' : option === 'Teams' ? 'fa-people-group' : option === 'Employees' ? 'fa-user' : 'fa-book'}`}></i>
                         <button className='ml-1 md:ml-4' onClick={() => handleOptionChange(option)}>{option}</button>
                     </li>
                 ))}
