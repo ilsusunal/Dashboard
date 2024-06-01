@@ -3,17 +3,11 @@ import { useData } from "../contexts/DataContext";
 
 export default function TeamTable(){
     const { teams} = useData();
-    const [expandedRows, setExpandedRows] = useState({}); // Ensure this state is properly defined
-
-    const handleToggle = (index) => {
-        setExpandedRows(prev => ({
-            ...prev,
-            [index]: !prev[index]
-        }));
-    };
+    const [modalContent, setModalContent] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const getShortDescription = (description) => {
-        const maxLength = 50;
+        const maxLength = 120;
         if (description.length > maxLength) {
             return capitalizeFirstLetter(description.substring(0, maxLength)) + "...";
         }
@@ -24,6 +18,16 @@ export default function TeamTable(){
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
+    const handleSeeMore = (description) => {
+        setModalContent(capitalizeFirstLetter(description));
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setModalContent(null);
+    };
+
     if (!teams) {
         return <div>Loading...</div>;
     }
@@ -31,44 +35,60 @@ export default function TeamTable(){
     return(
         <>
         <main className="p-6 bg-white grow rounded-3xl">
-        <div className='flex justify-between items-center text-lavender-400 mb-4'>
-           <h2 className="text-lavender-400 mb-4">Team List</h2>
-            <button className="px-3 py-1  border rounded-lg border-lavender-400"
-                onClick={() => {}}>
-                <i className="fa-solid fa-plus px-1 "/>
-                Add
-            </button> 
-        </div>
-        <table className='table-auto p-6 '>
-        <thead className=''>
-          <tr>
-            <th>Title</th>
-            <th>Score</th>
-            <th>Employees</th>
-            <th className='hidden md:table-cell'>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-        {teams.sort((a, b) => b.current_score - a.current_score)
-            .map((team, index) => (
-            <React.Fragment key={index}>
-                <tr onClick={() => handleToggle(index)} className="cursor-pointer">
-                    <td className='font-medium'>{team.title}</td>
-                    <td>{team.overall_score}</td>
-                    <td>{team.total_employee_count}</td>
-                    <td className='text-gray-500'>
-                        {expandedRows[index] ? capitalizeFirstLetter(team.description) : getShortDescription(team.description)}
-                        {!expandedRows[index] && team.description.length > 50 && (
-                        <span className="text-yellow-500"> see more</span>
-                        )}
-                    </td>
-                </tr>
-            </React.Fragment>
-        ))}
-        </tbody>
-        </table>
-        </main>
-        
+            <div className='flex justify-between items-center text-lavender-400 mb-4'>
+                <h2 className="text-lavender-400 mb-4">Team List</h2>
+                <button className="px-3 py-1 border rounded-lg border-lavender-400"
+                    onClick={() => {}}>
+                    <i className="fa-solid fa-plus px-1" />
+                    Add
+                </button>
+            </div>
+            <table className='table-auto p-6'>
+                <thead className=''>
+                    <tr>
+                        <th>Title</th>
+                        <th>Score</th>
+                        <th className='hidden md:table-cell'>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {teams.sort((a, b) => b.current_score - a.current_score)
+                    .map((team, index) => (
+                    <React.Fragment key={index}>
+                        <tr className="cursor-pointer">
+                            <td className='font-medium'>{team.title}</td>
+                            <td>{team.overall_score}</td>
+                            <td className='text-gray-500'>
+                                {getShortDescription(team.description)}
+                                {team.description.length > 120 && (
+                                <span className="text-yellow-500 cursor-pointer" 
+                                    onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleSeeMore(team.description);
+                                    }}> see more</span>)}
+                            </td>
+                        </tr>
+                    </React.Fragment>
+                ))}
+                </tbody>
+                </table>
+            </main>
+
+            {isModalOpen && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white 500 p-6 rounded-lg max-w-sm w-full mx-4">
+                        <div className='flex justify-between items-center mb-4'>
+                           <h3 className="text-lg font-semibold">Description</h3> 
+                           <button 
+                            className="px-4 py-2 bg-yellow-400 text-white rounded-full"
+                            onClick={closeModal}
+                        ><i className="fa-solid fa-xmark"/></button>
+                        </div>
+                        <p>{modalContent}</p>
+                        
+                    </div>
+                </div>
+            )}
         </>
     )
 }

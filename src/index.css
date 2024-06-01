@@ -27,5 +27,29 @@ td{
   @apply py-1 md:py-3 px-2 md:px-6 text-xs md:text-sm  
 }
 
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  @apply relative w-full h-full
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  backface-visibility: hidden;
+  @apply absolute rounded-lg border-2 border-pink-700 w-full h-full
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  @apply text-white bg-pink-700 
+}
+
 
 
