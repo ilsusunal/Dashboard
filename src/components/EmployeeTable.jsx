@@ -4,7 +4,7 @@ import { useData } from "../contexts/DataContext";
 export function EmployeeTable(){
     const {teams, selectedTeam, setSelectedTeam} = useData();
 
-    if (!teams) {
+    if (!teams || !selectedTeam) {
         return <div>Loading...</div>;
     }
 
