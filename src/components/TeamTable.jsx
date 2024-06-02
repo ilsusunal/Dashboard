@@ -68,7 +68,7 @@ export default function TeamTable(){
 
     return(
         <>
-        <main className="p-6 bg-white dark:bg-indigo-100 grow rounded-3xl">
+        <main className="grow p-6 bg-white dark:bg-indigo-100 rounded-3xl">
             <div className='flex justify-between items-center text-lavender-400 mb-4'>
                 <h2 className="text-lavender-400 ">Team List</h2>
                 <div >

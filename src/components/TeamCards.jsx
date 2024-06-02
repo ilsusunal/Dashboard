@@ -4,10 +4,6 @@ import { useData } from '../contexts/DataContext';
 export function TeamCards(){
     const { teams} = useData();
 
-    const capitalizeFirstLetter = (string) => {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    };
-
     return(
         <>
         <main className="p-6 bg-white dark:bg-indigo-100 grow rounded-3xl">
