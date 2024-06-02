@@ -47,7 +47,7 @@ td{
 
 .flip-card-back {
   transform: rotateY(180deg);
-  @apply text-white bg-pink-700 dark:bg-indigo-800 
+  @apply text-white bg-pink-700 dark:bg-indigo-800 flex flex-col items-center justify-center
 }
 
 ::-webkit-scrollbar {

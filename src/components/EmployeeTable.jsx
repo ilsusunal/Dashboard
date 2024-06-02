@@ -1,16 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useData } from "../contexts/DataContext";
 import { EmployeeModal } from '../modal/EmployeeModal';
+import { sortByFirstName } from '../utils/Sort';
 
 export function EmployeeTable(){
   const {teams, selectedTeam, setSelectedTeam} = useData();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [filteredEmp, setFilteredEmp] = useState([]);
+  const [sortOrder, setSortOrder] = useState('asc');
 
-  if (!teams || !selectedTeam) {
-    return <div>Loading...</div>;
-  }
+  useEffect(() => {
+    if (selectedTeam && selectedTeam.employees) {
+      setFilteredEmp([...selectedTeam.employees]);
+    }
+  }, [teams, selectedTeam]);;
 
-    
   const handleTeamSelect = (team) => {
     setSelectedTeam(team);
   };
@@ -20,6 +24,16 @@ export function EmployeeTable(){
     setIsModalOpen(false);
     //ideally I will send a post request here 
   };
+  
+  const handleSort = () => {
+    const sortedData = sortByFirstName(filteredEmp, sortOrder);
+    setFilteredEmp(sortedData);
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+  };
+  
+  if (!teams || !selectedTeam) {
+    return <div>Loading...</div>;
+  }
 
   return(
   <>
@@ -46,7 +60,10 @@ export function EmployeeTable(){
     <table className='table-auto p-6 '>
       <thead className=''>
         <tr>
-          <th>Employee</th>
+          <th onClick={handleSort} className="cursor-pointer flex items-center">
+            Employee
+            <i className={`fa-solid ${sortOrder === 'asc' ? 'fa-arrow-down' : 'fa-arrow-up'} ml-2`}/>
+          </th>
           <th>Title</th>
           <th className="hidden md:table-cell">Email</th>
           <th>Score</th>
@@ -55,7 +72,7 @@ export function EmployeeTable(){
         </tr>
       </thead>
       <tbody>
-        {selectedTeam.employees.map((emp, index) => (
+        {filteredEmp.map((emp, index) => (
           <tr key={index}>
             <td className='font-medium'>{emp.name}</td>
             <td>{emp.title}</td>

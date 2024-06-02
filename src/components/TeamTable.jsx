@@ -1,15 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useData } from "../contexts/DataContext";
 import { DescriptionModal } from '../modal/DescriptionModal';
 import { TeamModal } from '../modal/TeamModal';
 import { EmployeeModal } from '../modal/EmployeeModal';
+import { sortByTitle } from '../utils/Sort';
 
 export default function TeamTable(){
     const { teams } = useData();
+
     const [modalContent, setModalContent] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isTeamModalOpen, setIsTeamModalOpen] = useState(false);
     const [isEmployeeModalOpen, setIsEmployeeModalOpen] = useState(false);
+
+    const [filteredTeam, setFilteredTeam] = useState([]);
+    const [sortOrder, setSortOrder] = useState('asc');
+
+    useEffect(() => {
+        setFilteredTeam(sortTeams(teams));
+      }, [teams]);
+      
+    const sortTeams = (teamsData) => {
+        return sortByTitle(teamsData, sortOrder);
+    };
+
+    const handleSort = () => {
+        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        setFilteredTeam(sortTeams(filteredTeam));
+    };
 
     const getShortDescription = (description) => {
         const maxLength = 60;
@@ -69,7 +87,10 @@ export default function TeamTable(){
             <table className='table-auto'>
                 <thead className=''>
                     <tr>
-                        <th>Team</th>
+                        <th onClick={handleSort} className="cursor-pointer flex items-center">
+                            Team
+                            <i className={`fa-solid ${sortOrder === 'asc' ? 'fa-arrow-down' : 'fa-arrow-up'} ml-2`}/>
+                        </th>
                         <th>Score</th>
                         <th className='hidden md:table-cell'>Employee</th>
                         <th>Description</th>

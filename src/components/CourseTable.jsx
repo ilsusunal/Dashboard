@@ -1,22 +1,34 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useData } from '../contexts/DataContext';
 import { useCourseContext } from '../contexts/CourseContext';
+import { sortByTitle } from '../utils/Sort';
 
 export function CourseTable(){
     const {coursesInP, coursesUpcoming} = useData();
     const { status, handleCourseStatus } = useCourseContext();
+    const [filteredCourses, setFilteredCourses] = useState([]);
+    const [sortOrder, setSortOrder] = useState('asc');
+
+    useEffect(() => {
+      setFilteredCourses(getFilteredCourses());
+    }, [status, coursesInP, coursesUpcoming]);
 
     const getFilteredCourses = () => {
-      if (status === "in_progress") {
-        return coursesInP;
-      } else if (status === "upcoming") {
-        return coursesUpcoming;
+      if (status === "upcoming") {
+          return coursesUpcoming;
+      } else if (status === "in_progress") {
+          return coursesInP;
+      } else {
+          return [...coursesInP, ...coursesUpcoming];
       }
-      return [];
     };
-  
-    const filteredCourses = getFilteredCourses();
-    
+
+    const handleSort = () => {
+      const sortedData = sortByTitle([...filteredCourses], sortOrder);
+      setFilteredCourses(sortedData);
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    };
+
 
     return(
         <>
@@ -31,7 +43,10 @@ export function CourseTable(){
         <table className='table-auto p-6 '>
         <thead className=''>
           <tr>
-            <th>Course</th>
+            <th onClick={handleSort} className="cursor-pointer flex items-center">
+              Course
+              <i className={`fa-solid ${sortOrder === 'asc' ? 'fa-arrow-down' : 'fa-arrow-up'} ml-2`}/>
+            </th>
             <th>Assigned</th>
             <th className='hidden md:table-cell'>Description</th>
             <th>Due Date</th>
