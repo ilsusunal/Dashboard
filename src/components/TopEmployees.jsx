@@ -2,11 +2,8 @@ import React from 'react';
 import { useData } from "../contexts/DataContext";
 
 export function TopEmployees(){
-    const { topEmployees, setSelectedTeam } = useData();
+    const { topEmployees } = useData();
 
-    const handleTeamSelect = (team) => {
-        setSelectedTeam(team);
-    };
     return(
         <>
         <div className='flex'>
