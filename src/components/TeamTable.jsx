@@ -84,7 +84,7 @@ export default function TeamTable(){
                     </button>  
                 </div>
             </div>
-            <table className='table-auto'>
+            <table className='grow'>
                 <thead className=''>
                     <tr>
                         <th onClick={handleSort} className="cursor-pointer flex items-center">
